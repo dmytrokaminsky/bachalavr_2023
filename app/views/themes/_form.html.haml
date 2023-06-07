@@ -1,0 +1,15 @@
+.row
+  .col.col-12
+    %h1= formtitle
+
+    = form_with(model: theme, local: true) do |form|
+      = render 'application/error', object: theme
+
+      .field
+        = form.label :title
+        = form.text_field :title
+
+      .actions
+        = form.submit t('actions.save'), class: 'btn'
+        .float-right
+          = link_to t('actions.back'), themes_path, class: 'btn btn-outline'

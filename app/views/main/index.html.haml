@@ -1,0 +1,22 @@
+.row
+  .col.col-12
+    %h2= t('themes.choose')
+    - if @themes.any?
+      %ul.tags
+        - @themes.each do |theme|
+          %li
+            = link_to theme do
+              = theme.title
+              %span= theme.questions_count
+    - else
+      .empty-block
+        = t('titles.empty')
+
+    %h2.pt-3= t('rules.titles')
+    %ul.text-muted.pl-3
+      %li= t('rules.first')
+      %li= t('rules.second')
+      %li= t('rules.third')
+      %li= t('rules.fourth')
+      %li= t('rules.fifth')
+      %li= t('rules.sixth')

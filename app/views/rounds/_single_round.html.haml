@@ -1,0 +1,11 @@
+.row
+  .col.col-12
+    %h1.text-center Тестування з предмету &laquo;#{theme_title}&raquo;
+    #questions
+      .py-3.text-center.text-muted
+        .lead
+          - if questions_count >=11
+            = t('questions.from_10')
+          = plural questions_count, 'question'
+
+      .text-center.py-3= yield

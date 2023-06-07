@@ -1,0 +1,10 @@
+@import 'mixins';
+
+.result-success,
+.result-wrong {
+  color: #fff;
+  text-align: center;
+}
+
+.result-success {background: $success}
+.result-wrong   {background: $failed}

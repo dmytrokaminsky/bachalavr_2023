@@ -1,0 +1,11 @@
+uk:
+  themes:
+    title: Список тестів
+    new_title: Новий тест
+    edit_title: Редагування тесту
+    add: Додати тест
+    add_new: Додати тест
+    choose: Виберіть тест
+    empty_questions: Немає питань
+    questions_count: Кількість запитань
+    search_placeholder: Введіть назву

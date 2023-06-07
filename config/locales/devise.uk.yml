@@ -1,0 +1,66 @@
+
+uk:
+  devise:
+    confirmations:
+      confirmed: "Обліковий запис підтверджено."
+      send_instructions: "Ви отримаєте повідомлення з підтвердженням"
+      send_paranoid_instructions: "Якщо ваша електронна пошта присутня в базі данних, то ви отримаєте подальші інструкції."
+    failure:
+      already_authenticated: "Вхід уже здійснено."
+      inactive: "Ваш аккаунт не активовано"
+      invalid: "Неправильний %{authentication_keys} або пароль."
+      locked: "Ваш аккаунт заблоковано."
+      last_attempt: "Ще одна спроба."
+      not_found_in_database: "Неправильний %{authentication_keys} або пароль."
+      timeout: "Сеанс закінчено, зайдіть знову."
+      unauthenticated: "Потрібно зайти або зареєструватися."
+      unconfirmed: "Потрібно підтвердити аакаунт."
+    mailer:
+      confirmation_instructions:
+        subject: "Інструкції для підтвердження облікового запису."
+      reset_password_instructions:
+        subject: "Інструкції для відновлення паролю."
+      unlock_instructions:
+        subject: "Інструкції для розблокування аккацнту."
+      email_changed:
+        subject: "Електронну пошту змінено."
+      password_change:
+        subject: "Пароль змінено."
+    omniauth_callbacks:
+      failure: "Неможливо здійснити вхід з %{kind}, оскільки \"%{reason}\"."
+      success: "Вхід злійснено з %{kind}."
+    passwords:
+      no_token: "сторінка недоступна."
+      send_instructions: "Незабаром ви отримаєте подальші інструкції"
+      send_paranoid_instructions: "Незабаром ви отримаєте подальші інструкції"
+      updated: "Пароль змінено."
+      updated_not_active: "Пароль змінено."
+    registrations:
+      destroyed: "Аккаунт видалено"
+      signed_up: "Аккаунт створено"
+      signed_up_but_inactive: "Реєстрація успішна. Аккаунт ще не активовано"
+      signed_up_but_locked: "Реєстрація успішна. Аккаунт заблокований"
+      signed_up_but_unconfirmed: "Незабаром ви отримаєте подальші інструкції"
+      update_needs_confirmation: "Аккаунт оновлено, необхідно підтвердити email. Перевірте пошту і натисніть \"Підтвердити\"."
+      updated: "Аккацнт змінено"
+      updated_but_not_signed_in: "Аккаунт змінено. Увійдіть знову"
+    sessions:
+      signed_in: "Вхід Здійснено."
+      signed_out: "Вихід здійснено."
+      already_signed_out: "Вихід здійснено."
+    unlocks:
+      send_instructions: "Незабаром ви отримаєте подальші інструкції"
+      send_paranoid_instructions: "Незабаром ви отримаєте подальші інструкції"
+      unlocked: "Аккаунт розблоковано"
+  errors:
+    messages:
+      already_confirmed: "Підтверджено"
+      confirmation_period_expired: "Потрібно підтвердити протягом %{period}, відправте заново"
+      expired: "Застаріла"
+      not_found: "Не знайдено"
+      not_locked: "Не заблоковано"
+      not_saved:
+        one: "%{resource}: зберегти не вдалось через %{count} помилки"
+        few: "%{resource}: зберегти не вдалось через %{count} помилки"
+        many: "%{resource}: зберегти не вдалось через %{count} помилки"
+        other: "%{resource}: зберегти не вдалось через %{count} помилки"

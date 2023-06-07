@@ -1,0 +1,35 @@
+@import 'mixins';
+
+.pagination {
+  a, .page.disabled, .page.active {
+    border: solid 1px lighten($basic-color, 10%);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    padding: 0.3rem 0.5rem;
+
+    @include border-radius(5px);
+  }
+  a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .page.active {
+    cursor: default;
+  }
+
+  a:hover, .page.active {
+    color: #fff;
+    background-color: $secondary-color;
+    border: solid 1px $secondary-color;
+  }
+
+  .page.disabled, .page.disabled:hover {
+    background: none;
+    cursor: default;
+    color: lighten($main-color, 70%);
+    border-color: lighten($main-color, 70%);
+  }
+}

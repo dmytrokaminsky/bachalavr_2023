@@ -1,0 +1,5 @@
+= results.pluck(:success).each do |result|
+  - if result == false
+    .progress-bar-failed(style="width:#{part}%")><
+  - else
+    .progress-bar-success(style="width:#{part}%")><

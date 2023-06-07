@@ -1,0 +1,14 @@
+#theme_modal.modal.d-none
+  .modal_dialog
+    %header.modal_header
+      %h2= t('themes.new_title')
+    .modal_content
+      #theme_errors
+      = form_with(model: Theme.new, id: 'new_theme_form') do |f|
+        = f.label :title
+        = f.text_field :title
+        .modal-actions
+          = f.submit t('actions.add'), class: 'btn'
+          .float-right
+            .btn.btn-outline#modal_close
+              = t('actions.close')

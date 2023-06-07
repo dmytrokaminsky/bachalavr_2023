@@ -1,0 +1,14 @@
+= search_form_for q, url: audit_path, class: 'row mb-3' do |f|
+  .col.col-3
+
+    = f.select :action_eq,
+        Audit::ACTIONS.map{|action| [t("audit.actions.#{action}"), action]},
+        { include_blank: t('actions.select_action') }
+  .col.col-3
+    = f.select :auditable_type_eq,
+        Audit::MODELS.map{|model| [t("activerecord.models.#{model.downcase}"), model]},
+        { include_blank: t('actions.select_model') }
+  .col.col-4
+    = f.text_field :comment_cont, placeholder: t('audit.search_comment')
+  .col.col-2
+    = f.submit class: 'btn btn-md'

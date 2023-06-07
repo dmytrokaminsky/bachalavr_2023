@@ -1,0 +1,25 @@
+= render 'main/audit_search_form', q: @q
+
+.row
+  .col.col-12
+    .pb-2.text-right= raw pagy_nav(@pagy)
+    %table.table
+      %thead
+        %tr
+          %th= sort_link @q, :created_at,     Audit.human_attribute_name(:created_at)
+          %th= t('audit.who')
+          %th= sort_link @q, :action,         Audit.human_attribute_name(:action)
+          %th= sort_link @q, :auditable_type, Audit.human_attribute_name(:auditable_type)
+          %th= Audit.human_attribute_name(:comment)
+      %tbody
+        - @audits.each do |audit|
+          %tr
+              = audit.user&.login
+            %td
+              = t("audit.actions.#{audit.action}")
+            %td
+              = audit.output
+            %td
+              = audit.comment
+
+    .pt-2.text-right= raw pagy_nav(@pagy)

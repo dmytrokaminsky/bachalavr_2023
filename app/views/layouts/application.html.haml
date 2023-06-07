@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Система
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  %body
+    %header.row
+      = link_to 'Система', root_url, class: 'header-logo'
+      %ul.inline-list.header-menu
+        - if policy(Question).index?
+          %li{class: params[:controller] == 'questions' ? 'active' : nil}
+            = link_to t('titles.questions'), questions_path
+        - if policy(User).index?
+          %li{class: (%w[devise/sessions users].include? params[:controller]) ? 'active' : nil }
+            = link_to t('titles.users'), users_path
+        - if policy(:main).audit?
+          %li{class: params[:action] == 'audit' ? 'active' : nil}
+            = link_to t('titles.audit'), audit_path
+      = render 'users/userbar'
+    .content.bg-white
+      - if flash.any?
+        .row#flash
+          .col
+            - flash.each do |type, msg|
+              = content_tag :div, msg, class: type
+      = yield
+    %footer
+
+      .float-right 2021@quiz

@@ -1,0 +1,29 @@
+.row
+  .col.col-12
+    %h1= t('actions.sign_up')
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render 'application/error', object: resource
+      .row
+        .col.col-6
+          = f.label :login
+          = f.text_field :login, autofocus: true, autocomplete: "login"
+          .form-helptext
+            = t('users.login_helptext')
+
+        .col.col-6
+          = f.label :email
+          = f.email_field :email, autocomplete: "email"
+
+      .row
+        .col.col-6
+          = f.label :password
+          = f.password_field :password, autocomplete: "new-password"
+          - if @minimum_password_length
+            .form-helptext
+              минимум #{@minimum_password_length} символов
+        .col.col-6
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+      .actions
+        = f.submit t('actions.to_sign_up'), class: 'btn'
+        = render "users/shared/links"

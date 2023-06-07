@@ -1,0 +1,73 @@
+@import 'mixins';
+
+.text-muted {color: #666;}
+.text-success {color: #82b74b}
+.text-error {color: #c94c4c}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.field {
+  padding-bottom: 15px;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+
+textarea {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  @include border-radius(5px);
+}
+
+textarea:focus {
+  border: 1px solid #4b92e7;
+}
+
+.form-helptext {
+  text-align: right;
+  color: #999;
+  font-size: 0.8em;
+}
+
+.right-checkbox {
+  margin: 5px 15px;
+}
+
+#error_explanation {
+  width: 100%;
+  border: 1px solid #d56464;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  @include border-radius(5px);
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #d56464;
+    color: #fff;
+  }
+
+
+  ul {
+    margin: 10px 20px;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}

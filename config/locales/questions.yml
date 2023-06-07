@@ -1,0 +1,9 @@
+uk:
+  questions:
+    add: Додати питання
+    answer: Відповіль №%{index}
+    new_title: Нове питання
+    edit_title: Редагування питання
+    from_10: В тесті доступно 10 із
+    flag_must_exist: має бути позначено
+    search_placeholder: введіть тему назву або автора

@@ -1,0 +1,13 @@
+<% if @theme.errors.any? %>
+  themeErrors = document.getElementById('theme_errors');
+  themeErrors.innerHTML = "<%= j render('application/error', object: @theme) %>";
+<% else %>
+  questionSelect = document.getElementById('question_theme_id');
+  questionSelect.options[questionSelect.options.length] = new Option('<%= @theme.title %>', '<%= @theme.id %>');
+
+  themeModal = document.getElementById('theme_modal');
+  themeModal.classList.add('d-none');
+
+  themeForm = document.getElementById('new_theme_form');
+  themeForm.reset();
+<% end %>

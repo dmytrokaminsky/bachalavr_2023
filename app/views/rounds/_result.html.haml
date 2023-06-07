@@ -1,0 +1,21 @@
+%h1.text-center= t('results.yours')
+
+%table.table
+  %thead
+    %tr
+      %th #
+      %th= Question.human_attribute_name(:title)
+      %th= Question.human_attribute_name(:author)
+      %th= Answer.model_name.human.capitalize
+
+  %tbody
+    - results.each.with_index(1) do |result, index|
+      %tr
+        %td
+          = index
+        %td
+          = result.question.title
+        %td
+          = link_to result.question.author.login, result.question.author
+        %td{class: result.success ? 'result-success' : 'result-wrong'}
+          = result.answer_id ? result.answer.title : t('answers.empty')

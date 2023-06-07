@@ -1,0 +1,31 @@
+.row
+  .col.col-12
+    %h1= formtitle
+
+    = form_with(model: question, local: true) do |form|
+      = render 'application/error', object: question
+
+      .field
+        = form.label :title
+        = form.text_area :title
+
+      .field
+        = form.label :theme_id
+        = form.select :theme_id, Theme.order(:title).map{ |theme| [theme.title, theme.id] }, { include_blank: t('actions.select') }
+        .form-helptext
+          = link_to t('themes.add_new'), '#add_theme', id: 'add-theme', onclick: "getThemeForm(this)"
+
+      = form.fields_for :answers do |a|
+        .field
+          = a.label :title, t('questions.answer', index: a.options[:child_index] + 1)
+          .row
+            .col-11
+              = a.text_field :title
+            .col-1
+              = a.check_box :correct, class: 'right-checkbox answerCheckbox', onclick: "selectOnlyOneCheckbox(this)"
+      .actions
+        = form.submit class: 'btn'
+        .float-right
+          = link_to t('actions.back'), questions_path, class: 'btn btn-outline'
+
+    = render 'themes/remote_form'

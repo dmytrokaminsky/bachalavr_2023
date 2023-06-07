@@ -1,0 +1,12 @@
+uk:
+  users:
+    edit_title: Редагування користувача
+    login_helptext: Может состоят только из цифр, латинских букв и нижнего подчеркивания
+    favorite_theme: 'Тема:'
+    leave_password: не чіпайте щоб не змінити пароль
+    we_need_password: введать пароль
+    cancel_account: Видалити аккаунт
+    roles:
+      admin: Адміністратор
+      moderator: Модератор
+      user: Користувач

@@ -1,0 +1,19 @@
+uk:
+  audit:
+    actions:
+      create: Створити
+      update: Оновити
+      destroy: Видалити
+    date: Дата
+    who: Користувач
+    action: Дія
+    model: Модель
+    comment: Коментар
+    search_comment: Пошук за коментарем
+    comments:
+      on_theme: На тему "%{theme}"
+      finish_theme: Завершив на тему "%{theme}"
+      theme_name: Назва "%{theme}"
+      new_theme_name: Зміна назви з "%{old_theme}" на "%{theme}"
+      new_question: '"%{title}" на тему "%{theme}"'
+      change_role: Зміна ролі на "%{role}"

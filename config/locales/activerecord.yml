@@ -1,0 +1,43 @@
+uk:
+  activerecord:
+    errors:
+      models:
+        question:
+          attributes:
+            theme:
+              required: має бути вибрана 
+    models:
+      answer: Відповідь
+      question: Питання
+      round: Раунд
+      theme: Тема
+      user: Користувач
+      result: Результат
+    attributes:
+      answer:
+        title: Текст відповіді
+      answers:
+        title: Текст запитання
+      audit:
+        action: Дія
+        created_at: Дата створення
+        comment: Коментар
+        user: Користувач
+        auditable_type: Модель
+      question:
+        author: Автор
+        theme_id: Тема
+        theme: Тема
+        title: Текст питання
+        correct: Правильність
+      round:
+        finished: Завершений
+      theme:
+        title: Назва
+      user:
+        login: Логін
+        password: Пароль
+        password_confirmation: Підтверження паролю
+        current_password: Поточний пароль
+        role: Роль
+        remember_me: Запам'ятати мене

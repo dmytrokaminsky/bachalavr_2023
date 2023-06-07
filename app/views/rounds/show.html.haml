@@ -1,0 +1,5 @@
+= render 'rounds/single_round',
+    theme_title: @round.theme.title,
+    questions_count: @round.questions_collection.count do
+
+  = link_to t('actions.continue'), @round, class: 'btn', remote: true

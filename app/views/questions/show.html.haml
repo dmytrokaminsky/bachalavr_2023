@@ -1,0 +1,15 @@
+.row
+  .col.col-12
+    %h1= @question.title
+
+    = @question.theme.title
+  .col.col-12.text-right
+    %strong
+    = Question.human_attribute_name(:author)
+    = @question.author.login
+
+- @question.answers.each do |answer|
+  .row
+    .col.col-12
+      .button.mb-2.btn-answer= answer.title
+

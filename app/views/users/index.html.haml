@@ -1,0 +1,23 @@
+.row
+  .col.col-12
+    - if @users.any?
+      %table.table
+        %thead
+          %tr
+            %th ID
+            %th= User.human_attribute_name(:login)
+            - if policy(User).edit?
+              %th
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td
+                = user.id
+              %td
+                = link_to user.login, user
+              - if policy(user).edit?
+                %td
+                  = link_to t('actions.edit'), edit_user_path(user)
+    - else
+      .empty-block
+        = t('titles.empty')

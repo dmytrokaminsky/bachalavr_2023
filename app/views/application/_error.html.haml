@@ -1,0 +1,7 @@
+- if object.errors.any?
+  #error_explanation
+    %h2
+      = t 'actions.errors_done', error: plural(object.errors.count, 'error_done')
+    %ul
+      - object.errors.full_messages.each do |message|
+        %li= message

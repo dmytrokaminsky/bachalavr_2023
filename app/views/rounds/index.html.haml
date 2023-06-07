@@ -1,0 +1,14 @@
+.row
+  .col-12
+    %h1= t('titles.rounds')
+
+    %table.table
+      %thead
+        %tr
+          %th= t('titles.date')
+          %th= User.model_name.human.capitalize
+          %th= Theme.model_name.human.capitalize
+          %th= t('rounds.current_wrong')
+          %th
+      %tbody
+        = render @rounds, user_info: true

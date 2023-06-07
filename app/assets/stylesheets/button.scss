@@ -1,0 +1,82 @@
+@import 'mixins';
+
+.btn {
+    background: linear-gradient(to bottom, $basic-color 5%, darken($basic-color, 10%) 100%);
+    background-color: $basic-color;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 22px;
+    text-decoration: none;
+    border: 1px solid darken($basic-color, 10%);
+
+    @include border-radius(5px);
+
+  &.btn-sm {
+    font-size: 14px;
+    padding: 5px 11px;
+  }
+
+  &.btn-md {
+    font-size: 14px;
+    padding: 7px 11px;
+  }
+
+
+  &:hover {
+    background: linear-gradient(to bottom, darken($basic-color, 10%) 5%, $basic-color 100%);
+    background-color: darken($basic-color, 10%);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+  &.btn-outline {
+    background: linear-gradient(to bottom, $light-grey 5%, darken($light-grey, 10%) 100%);
+    background-color: $light-grey;
+    border: 1px solid darken($light-grey, 10%);
+    color: #666;
+    font-weight: 100;
+  }
+
+  &.btn-outline:hover {
+    background: linear-gradient(to bottom, darken($light-grey, 10%) 5%, $light-grey 100%);
+    background-color: darken($light-grey, 10%)
+  }
+}
+
+
+.button {
+  background-color: $basic-color;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+
+  @include box-shadow(0 5px 0 darken($basic-color, 10%));
+  @include border-radius(5px);
+
+  &:hover {
+    background-color: rgba(0, 50, 115, 0.6);
+    @include box-shadow(0 5px 0 darken($basic-color, 20%));
+  }
+
+  a:active {
+    @include box-shadow(none);
+    top: 5px;
+  }
+
+  &.btn-by { margin-bottom: 20px; }
+
+  &.btn-expired {
+    background-color: lighten($basic-color, 10%);
+  }
+}

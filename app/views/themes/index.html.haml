@@ -1,0 +1,37 @@
+.row
+  .col.col-6
+    - if policy(Theme).new?
+      = link_to t('themes.add'), new_theme_path, class: 'btn btn-outline btn-sm mb-2'
+  .col.col-6.text-right
+    = render 'themes/search_form', q: @q
+
+.row
+  .col.col-12
+    - if @themes.any?
+      .pb-2.text-right= raw pagy_nav(@pagy)
+      %table.table
+        %thead
+          %tr
+            %th
+              = sort_link @q, :title, Theme.human_attribute_name(:title)
+            %th
+              = sort_link @q, :questions_count, t('themes.questions_count'), default_order: :desc
+            %th
+        %tbody
+          - @themes.each do |theme|
+            %tr
+              %td= link_to theme.title, theme
+              %td= theme.questions_count
+              - if policy(theme).edit?
+                %td
+                  %ul.tooltip
+                    %li
+                      %a &#9881;
+                      %ul
+                        %li= link_to t('actions.edit'), edit_theme_path(theme)
+                        %li= link_to t('actions.del'), theme, method: :delete, data: { confirm: t('actions.sure') }
+      .pt-2.text-right= raw pagy_nav(@pagy)
+
+    - else
+      .empty-block
+        = t('titles.empty')

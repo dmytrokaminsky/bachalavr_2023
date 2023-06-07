@@ -1,0 +1,40 @@
+- answers_stat = @user.answers_stat
+
+.row
+  .col.col-12
+    - if policy(@user).get_more_info?
+      .float-right.text-muted
+        = t("users.roles.#{@user.role}")
+    %h1= @user.login
+
+  - if @rounds.any?
+    .col.col-12
+      %p.pb-2
+        = t('results.total')
+        %strong.text-success= answers_stat[:correct]
+        \ /
+        %strong.text-error=   answers_stat[:wrong]
+      - if answers_stat[:total]
+        %p.pb-2
+          = t('results.in_percent')
+          #{answers_stat[:total]}%
+      - if @user.favorite_theme
+        %p.pb-2
+          = t('users.favorite_theme')
+          = link_to @user.favorite_theme.title, @user.favorite_theme
+
+    .col.col-12
+      .pb-2.text-right= raw pagy_nav(@pagy)
+      %table.table
+        %thead
+          %tr
+            %th= t('titles.date')
+            %th= Theme.model_name.human.capitalize
+            %th= t('rounds.current_wrong')
+            %th
+        %tbody
+          = render @rounds, user_info: false
+  - else
+    .col.col-12
+      .empty-block
+        = current_user ? t('results.empty_for_user') : t('results.empty')

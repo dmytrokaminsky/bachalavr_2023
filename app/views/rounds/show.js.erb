@@ -1,0 +1,24 @@
+var questions = document.getElementById('questions')
+questions.innerHTML = "<%=j render @questions %>";
+
+var el = document.getElementById('timer'),
+    next_button = document.getElementById('next-button'),
+    empty_result_button = document.getElementById('empty-result-button'),
+    total = <%= Round::LIMIT_TIME %>,
+
+    timeinterval = setInterval(function () {
+        total = --total;
+        el.textContent = total;
+        if (total <= 0) {
+            clearInterval(timeinterval);
+            empty_result_button.click();
+
+            var buttons = document.getElementsByClassName("button");
+            for (var i = 0, len = buttons.length; i < len; i++) {
+              var button = buttons[i];
+              button.href="javascript:;";
+              next_button.classList.remove('d-none');
+              button.classList.add('btn-expired');
+            }
+         }
+    }, 1000);

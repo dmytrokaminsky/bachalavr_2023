@@ -1,0 +1,164 @@
+@import 'mixins';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+html {
+  display: flex;
+  background: asset-url('greydots.png') $basic-color;
+  background-repeat: repeat;
+}
+
+body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+  width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.content {
+  @include border-radius(5px);
+  @include box-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+  padding: 30px 10px;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.float-right {
+  float: right;
+  clear: right;
+}
+
+header{
+  margin: 20px 0;
+  color: #fff;
+  line-height: 25pt;
+  vertical-align: middle;
+  justify-content: space-between;
+}
+
+header a{
+  text-decoration: none;
+  &:hover {
+    background: none;
+  }
+  &, &:hover, &:visited {
+    color: #272424;
+  }
+}
+
+.header-menu {
+  a:hover {border-bottom: 1px solid #fff;}
+  li.active a{
+    border-bottom: 1px solid #fff;
+    font-weight: 600;
+  }
+  li {padding: 0 10px;}
+}
+
+.header-logo {
+  font-size: 25pt;
+  font-weight: 600;
+  color: #131010;
+  text-shadow: #d4cdcd 1px 1px 0;
+}
+
+footer {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.lead {font-size: 1.5em}
+
+ul.inline-list li{
+  display: inline;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#flash {
+  padding-bottom: 20px;
+  .alert  {color: $failed;}
+  .notice {color: $success;}
+}
+
+.d-none {
+  display: none;
+}
+
+h1 {
+  color: $basic-color;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 2em;
+  border-bottom: 1px solid $basic-color;
+}
+
+h2 {
+  color: $basic-color;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  border-bottom: 1px solid $basic-color;
+}
+
+
+.timer {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid darken($basic-color, 10%);
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  background: $basic-color;
+  margin: 5px auto 15px;
+
+  @include border-radius(50%);
+}
+
+.empty-block {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1.3em;
+  color: #999;
+}
+
+@each $size in $space-sizes {
+  .py-#{$size} { padding:        #{$size*10}px 0; }
+  .pb-#{$size} { padding-bottom: #{$size*10}px;   }
+  .pt-#{$size} { padding-top:    #{$size*10}px;   }
+  .pl-#{$size} { padding-left:   #{$size*10}px;   }
+  .pr-#{$size} { padding-right:  #{$size*10}px;   }
+
+  .my-#{$size} { margin:        #{$size*10}px 0; }
+  .mb-#{$size} { margin-bottom: #{$size*10}px;   }
+  .mt-#{$size} { margin-top:    #{$size*10}px;   }
+  .ml-#{$size} { margin-left:   #{$size*10}px;   }
+  .mr-#{$size} { margin-right:  #{$size*10}px;   }
+}
+
+#audit_search {
+  .btn {
+    margin-top: 6px;
+    dipslay: block;
+    width: 100%;
+  }
+}

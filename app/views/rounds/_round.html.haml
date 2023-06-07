@@ -1,0 +1,18 @@
+%tr
+  %td
+    = link_to_if (round.finished && policy(round).result?), datetime(round.created_at), result_round_path(round)
+  - if user_info
+    %td= link_to round.user.login, round.user
+  %td= round.theme.title
+  %td.text-center
+    %span.text-success= round.current_answers
+    \ /
+    %span.text-error= round.wrong_answers
+  %td
+    - if round.finished
+      %span.text-muted= t('rounds.finished')
+    - else
+      - if policy(round).show?
+        = link_to t('actions.continue'), round
+      - else
+        %span.text-muted= t('rounds.unfinished')

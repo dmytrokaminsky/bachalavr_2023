@@ -1,0 +1,11 @@
+.row
+  .col.col-12
+    %h1= t('users.edit_title')
+    = form_for @user do |f|
+      .field
+        = f.label :role
+        = f.select :role, User.roles.keys.map {|role| [t("users.roles.#{role}"), role] }
+      .actions
+        = f.submit t('actions.save'), class: 'btn'
+        .float-right
+          = link_to t('actions.back'), users_path, class: 'btn btn-outline'

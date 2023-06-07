@@ -1,0 +1,30 @@
+
+var button = document.getElementById('answer_' + <%= @answer_id %>);
+var current_button = document.getElementById('answer_' + <%= @question.current_answer_id %>);
+if (<%= @result %> == false) {
+  var current_button = document.getElementById('answer_' + <%= @question.current_answer_id %>);
+
+  button.style.backgroundColor = "red";
+  current_button.style.backgroundColor = "green";
+} else {
+  button.style.backgroundColor = "green";
+}
+
+var buttons = document.getElementsByClassName("button");
+for (var i = 0, len = buttons.length; i < len; i++) {
+    var button = buttons[i];
+    button.href="javascript:;";
+}
+
+
+var progress_line = document.getElementById("progress");
+progress_line.innerHTML = "<%= render 'questions/progress', results: @round.results, part: @round.questions_part%>";
+
+
+var highestTimeoutId = setTimeout(";");
+for (var i = 0 ; i < highestTimeoutId ; i++) {
+    clearTimeout(i); 
+}
+
+var next_button = document.getElementById('next-button');
+next_button.classList.remove('d-none');

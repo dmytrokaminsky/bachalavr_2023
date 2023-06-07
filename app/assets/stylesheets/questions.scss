@@ -1,0 +1,42 @@
+@import 'mixins';
+
+.question-title {
+  padding: 20px 0;
+}
+
+.progress {
+  position: relative;
+  margin-left: 5px;
+  width: 100%;
+  height: 19px;
+  display: inline-block;
+  text-align: left;
+  font-size: 14px;
+  top: 3px;
+  color: #fff;
+
+  .progress-bar-success {
+    display: inline-block;
+    background-color: green !important;
+    height: 17px;
+    line-height: inherit;
+    text-align: center;
+  }
+
+  .progress-bar-failed {
+    display: inline-block;
+    background-color: $failed !important;
+    height: 17px;
+    line-height: inherit;
+    text-align: center;
+  }
+
+  .progress-text {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.question_search {
+  input[type='search'] {width: 300px;}
+}

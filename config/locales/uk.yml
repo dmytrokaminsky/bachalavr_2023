@@ -1,0 +1,46 @@
+uk:
+  flash:
+    was_created: 'Створено: %{item}'
+    was_updated: 'Оновлено: %{item}'
+    was_destroyed: 'Видалено: %{item}'
+  actions:
+    save: Зберегти
+    answer: Відповісти
+    add: Додати
+    create: Створити
+    update: Оновити
+    del: Видалити
+    edit: Редагувати
+    back: Назад
+    logout: Вихід
+    select: == Вибрати ==
+    select_action: == Виберіть дію ==
+    select_model: == Виберіть модель ==
+    sign_in: Увійти
+    sign_in_title: Вхід
+    sign_up: Реєстрація
+    sure: Впевнені?
+    to_sign_up: Зареєструватися
+    errors_done: '%{error} при запвненні форми:'
+    start: Початок
+    close: Закрити
+    continue: Продовжити
+    next_html: Наступний &#8680;
+  rules:
+    titles: Правила
+    first: Тест проводиться один раз
+    second: В тесті кожне питання має варіанти відповідей
+    third: Тест містить до десяти питань
+    fourth: На кожне питання виділяється 15 секунд
+    fifth: Після 15 секунд питання стає недоступним
+    sixth: При перебої користувач не змодже закінчити перевірку знань
+  titles:
+    audit: Аудиція
+    questions: Запитання
+    users: Користувачі
+    empty: Поки пусто...
+    denied: Обмеження доступу
+    date: Дата
+    rounds: Список тестувань
+  fields:
+    created_at: Створено

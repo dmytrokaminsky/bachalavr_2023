@@ -1,0 +1,41 @@
+- if @pagy.next
+  - next_url = round_path(@round)
+  - next_title = t('actions.next_html')
+- else
+  - next_url = result_round_path(@round)
+  - next_title = t('results.show_html')
+
+.row
+  .col.col-12
+    #progress.progress
+      = render 'questions/progress', results: @round.results, part: @round.questions_part
+
+  .col.col-12.text-muted.text-right
+    = [Question.human_attribute_name(:author).downcase, question.author.login].join(': ')
+
+  .col.col-12
+    %h2.text-center.question-title
+      %span.text-muted Питання № #{@round.questions.count + 1}.
+      #{question.title}
+
+  .col.col-12
+    #timer.timer= Round::LIMIT_TIME
+
+.row
+  - question.answers.shuffle.each do |answer|
+    .col.col-12
+      = link_to answer.title,
+        check_question_path(question, answer_id: answer.id, round_id: @round.id),
+        remote: true,
+        class: 'button mb-2 btn-answer',
+        id: dom_id(answer)
+
+  = link_to 'empty question',
+    check_question_path(question, round_id: @round.id),
+    remote: true,
+    class: 'd-none',
+    id: 'empty-result-button'
+
+.row
+  .col.col-12.text-center
+    = link_to next_title, next_url, class: 'btn d-none', id: 'next-button', remote: true

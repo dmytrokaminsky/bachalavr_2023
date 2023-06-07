@@ -1,0 +1,66 @@
+$basic-color: #7f98b8;
+$secondary-color: rgba(0, 50, 115, 0.6);
+$light-grey: #efefef;
+$main-color: #1d1f20;
+$success: green;
+$failed: #d56464;
+$space-sizes: 1, 2, 3;
+
+@mixin linear-gradient($start-color, $end-color, $position, $linear-position) {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start-color}',endColorstr='#{$end-color}',GradientType=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start-color}',endColorstr='#{$end-color}',GradientType=0);
+  background-image: -webkit-gradient(linear, left top, $position, color-stop(0, $start-color), color-stop(1, $end-color));
+  background-image: -webkit-linear-gradient($linear-position, $start-color 0%, $end-color 100%);
+  background-image: -moz-linear-gradient($linear-position, $start-color 0%, $end-color 100%);
+  background-image: -o-linear-gradient($linear-position, $start-color 0%, $end-color 100%);
+  background-image: -ms-linear-gradient($linear-position, $start-color 0%, $end-color 100%);
+
+  @each $get-position, $legal-position in (
+                                           bottom: top,
+                                              top: bottom,
+                                             left: right,
+                                            right: left,
+                                         top left: bottom right,
+                                        top right: bottom left,
+                                      bottom left: top right,
+                                     bottom right: to left
+  ) {
+    @if $get-position == $linear-position {
+      background-image: linear-gradient(to $legal-position, $start-color 0%, $end-color 100%);
+    }
+  }
+}
+
+@mixin box-shadow($val...) {
+  -webkit-box-shadow: $val;
+     -moz-box-shadow: $val;
+          box-shadow: $val;
+}
+
+@mixin border-radius($val) {
+  -webkit-border-radius: $val;
+     -moz-border-radius: $val;
+          border-radius: $val;
+}
+
+@mixin transition($val...) {
+  -webkit-transition: $val;
+     -moz-transition: $val;
+      -ms-transition: $val;
+       -o-transition: $val;
+          transition: $val;
+}
+
+
+@mixin transition-property($val...) {
+  -webkit-transition-property: $val;
+     -moz-transition-property: $val;
+       -o-transition-property: $val;
+          transition-property: $val;
+}
+
+@mixin opacity($val) {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity='#{$val * 100}');
+  filter: alpha(opacity = $val*100);
+  opacity: $val;
+}

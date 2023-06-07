@@ -1,0 +1,10 @@
+= render 'rounds/single_round',
+    theme_title: @theme.title,
+    questions_count: @theme.questions_count do
+
+  - if @theme.questions_count > 0
+    = link_to new_round_path(theme_id: @theme), class: 'btn', remote: true do
+      = t('actions.start')
+  - else
+    .lead.text-muted
+      = t('themes.empty_questions')
